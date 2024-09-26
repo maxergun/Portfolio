@@ -1,6 +1,7 @@
-<!DOCTYPE html>
+
 <html lang="en">
     <script src="js/jquery-3.7.1.min.js"></script>
+
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -20,20 +21,12 @@
         <!-- Navigation-->
         <div id="mainNav"> </div>
         <script> $("#mainNav").load("nav.html"); </script>
-
-        <div class="container">
-          <ul class="tracklist">
-            <li class="mp3">
-              <img src="assets/img/play.png" alt="">
-              <p>track</p>
-              <p>12:32</p>
-            </li>
-          </ul>
-        </div>
+        <div class="container" id="tracklist-container"></ul></div>
         <div id="copyright"> </div>
         <script> $("#copyright").load("copyright.html");</script>
-    </body>
+      </body>
 
+    <script src="js/tracklists.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>
     <script src="./js/sb-forms-0.4.1.js"></script>
