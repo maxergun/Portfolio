@@ -1,6 +1,9 @@
-
 <html lang="en">
     <script src="js/jquery-3.7.1.min.js"></script>
+
+    <img src="assets/icons/music.png" alt="" style="display: none;" id="icon-music">
+    <img src="assets/icons/disk.gif" alt="" style="display: none;" id="icon-music-active">
+    <img src="assets/img/electronic.gif" alt="" style="display: none;" id="tracklistBGElectronic">
 
     <head>
         <meta charset="utf-8" />
@@ -21,11 +24,61 @@
         <!-- Navigation-->
         <div id="mainNav"> </div>
         <script> $("#mainNav").load("nav.html"); </script>
-        <div class="container" id="tracklist-container"></ul></div>
+
+        <div class="container tracklist-container" id="tracklistContainer"></ul></div>
         <div id="copyright"> </div>
         <script> $("#copyright").load("copyright.html");</script>
+        <div class="container fixed-bottom">
+          <div class="audio-player">
+            <button id="playButton" class="play-button">
+              <img
+                id="playButtonIcon"
+                class="play-button-icon"
+                src="assets/icons/continue.png"
+                alt="Play Button"
+              >
+              </img>
+            </button>
+            <div class="player-body">
+              <p class="title" id="trackTitle"></p>
+              <div id="waveform" class="waveform"></div>
+              <div class="controls">
+                <div class="volume">
+                  <img
+                    id="volumeIcon"
+                    class="volume-icon"
+                    src="assets/icons/volume.png"
+                    alt="Volume"
+                  />
+                  <input
+                    id="volumeSlider"
+                    class="volume-slider"
+                    type="range"
+                    name="volume-slider"
+                    min="0"
+                    max="100"
+                    value="50"
+                  />
+                </div>
+                <!-- <img
+                    id = "downloadButton" 
+                    class="downloadButton"
+                    src="assets/icons/download.png"
+                    alt="Download"
+                    > -->
+              </div>
+              <div class="timecode">
+                <span id="currentTime">00:00:00</span>
+                <span>/</span>
+                <span id="totalDuration">00:00:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </body>
-
+      
+      <script src="js/wavesurfer.js"></script> 
+      <script src="js/audio-player.js"></script>
     <script src="js/tracklists.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>

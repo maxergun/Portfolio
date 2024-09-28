@@ -4054,7 +4054,7 @@ textarea.form-control-lg {
     width: fit-content !important;
     margin-left: auto;
     margin-right: auto;
-    padding: 0.1 3rem;
+    padding: 0.2rem 3rem;
   }
   .navbar-expand-lg .navbar-nav {
     flex-direction: row;
@@ -11290,16 +11290,13 @@ body {
 
 .media-scroller {
   --spacer: 1rem;
-  display: grid;
   gap: var(--spacer);
-  grid-auto-flow: column;
-  grid-auto-columns: 23%;
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
+  grid-auto-flow: row;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
 }
 
 .media-scroller::-webkit-scrollbar {
-  width: 1;
 }
 
 .media-element {
@@ -11312,39 +11309,54 @@ body {
   transition: background-color .5s; 
 }
 
+.tracklist-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  padding: 3rem;
+  flex-wrap: wrap;
+}
 
 .tracklist {
   --spacer: .05rem;
-  background: var(--bs-gray-dark);
-  width: 500px;
-  height: 500px;
+  background-size: cover;
+  width: 600px;
+  height: 300px;
   list-style: none;
   gap: var(--spacer);
   padding-left: 0;
+  background: rgba(98, 98, 98, 0.993);
   /* display: grid;
   grid-auto-rows: 10%;
   grid-auto-flow: row; */
 }
 
 .mp3 {
+  --track-gradient-dark: rgba(0, 0, 0, 0.719);
+  --track-gradient-dark-mid: rgba(82, 82, 82, 0.541);
   cursor: pointer;
-  background: var(--bs-gray);
+  background: 
+    linear-gradient(
+      var(--track-gradient-dark),
+      var(--track-gradient-dark-mid),
+      var(--track-gradient-dark));
+  background-size: contain;
   color: white;
   display: grid;
   grid-template-columns: 10fr 80fr;
   grid-auto-flow: column;
+  transition: background .3s;
 }
 
-.mp3 > * {
+.mp3 > img {
   width: 100%;
   height: 100%;
 }
-.mp3 > img {
-  aspect-ratio: 1;
-}
-
 
 .mp3 > p {
+  width: 100%;
+  height: 100%;
   padding-left: 0.5rem;
   font-size: 0.6em;
   text-align: left;
@@ -11352,9 +11364,106 @@ body {
 }
 
 .mp3:hover {
-  background: var(--bs-gray-100);
-  color: #000;
-  text-shadow: none;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.826), rgb(92, 92, 92));
+  color: #000000; 
+}
+
+/* Audio player */
+.audio-player {
+  --primary-color: rgb(83, 83, 83);
+  --primary-background-color: rgb(92, 92, 92);
+  --secondary-background-color: rgb(37, 37, 37);
+  --secondary-color: rgb(75, 75, 75);
+  --highlight-color: rgb(255, 85, 1);
+  --box-shadow-color: rgb(201, 201, 201);
+  --disabled-button-color: rgb(175, 175, 175);
+  --border-radius: 1rem;
+  height: 200px;
+  width: 100%;
+  max-width: 100rem;
+  display: flex;
+  margin: 2rem 1rem;
+  background: linear-gradient(var(--secondary-background-color), var(--primary-background-color));
+  border-radius: var(--border-radius);
+  box-shadow: 0.2rem 0.2rem 1rem 0.2rem var(--box-shadow-color);
+}
+
+/* Play button */
+.play-button {
+  min-width: 5em;
+  min-height: 100%;
+  /* Reset default button styles */
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 100% 100% !important;
+  border-radius: var(--border-radius);
+  outline: none;
+  cursor: pointer;
+}
+
+.player-body {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  grid-template-columns: 50%;
+  grid-auto-rows: 33.33333;
+  grid-auto-flow: row;
+  flex-wrap: wrap;
+}
+
+/* Audio track title */
+.title {
+  grid-column: span 2;
+  font-size: calc(.5em + .5vw);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Main waveform */
+.waveform {
+  grid-column: span 2;
+  padding: 0.2rem 0;
+}
+
+/* Controls include volume mute/unmute, volume slider and timecode */
+.controls {
+  display: flex;
+  width: calc(5rem + 15vw)
+}
+
+/* Volume */
+.volume {
+  display: flex;
+  align-items: center;
+}
+.volume-icon {
+  cursor: pointer;
+  width: 2.1rem;
+  background: transparent;
+}
+.volume-slider {
+  margin: 0 .05em;
+  cursor: pointer;
+  width: 100%;
+  outline: none;
+  background: transparent;
+}
+
+.downloadButton {
+  height: 2rem;
+  padding-left: 1rem;
+  cursor: pointer;
+}
+
+/* Timecode */
+.timecode {
+  color: #ffffff8e;
+  grid-column: 2;
+  align-self: flex-end;
+  font-size: calc(.2em + .5vw);
+  text-align: end;
 }
 
 .snaps-inline {
@@ -11365,5 +11474,3 @@ body {
 .snaps-inline > * {
   scroll-snap-align: start;
 }
-
-
