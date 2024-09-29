@@ -3706,7 +3706,6 @@ textarea.form-control-lg {
 .nav-social-bar {
   display: flex;
   flex-direction: row-reverse;
-  border: green solid;
   width: 100%;
   max-width: 1125px;
   margin-left: auto;
@@ -11338,7 +11337,7 @@ body {
   list-style: none;
   gap: var(--spacer);
   padding-left: 0;
-  background: rgba(98, 98, 98, 0.993);
+  background: rgb(37, 36, 38);
   /* display: grid;
   grid-auto-rows: 10%;
   grid-auto-flow: row; */
@@ -11346,7 +11345,7 @@ body {
 
 .mp3 {
   --track-gradient-dark: rgba(0, 0, 0, 0.719);
-  --track-gradient-dark-mid: rgba(82, 82, 82, 0.541);
+  --track-gradient-dark-mid: rgb(82, 82, 82);
   cursor: pointer;
   background: 
     linear-gradient(

@@ -46,16 +46,20 @@ document.addEventListener("DOMContentLoaded", function() {
         })
     }
 
-    function InitAudioFolder(url, title, bgElemId) {
-        fetch(url, {headers: {
-            Authorization: 'token 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' 
-        }})
-        .then(response => response.json()) 
-        .then(data => {
-            const tracklistElem = document.createElement('ol')
-            tracklistElem.className = 'tracklist media-scroller'
+    function InitAudioFolder(url, title) {
+        const tracklistElem = document.createElement('ol')
+        tracklistElem.className = 'tracklist media-scroller'
 
-            const div = document.createElement("div")
+        fetch(url, {headers: {
+            Authorization: 'token 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' 
+        }})
+        .then(response => {
+            if (response.ok) {
+                return response.json()
+            }
+        }) 
+        .then(data => {
+            const div = document.createElement("div") 
             const titleElem = document.createElement("header")
             div.appendChild(titleElem)
             div.appendChild(tracklistElem)
@@ -72,8 +76,8 @@ document.addEventListener("DOMContentLoaded", function() {
             }).catch(error => console.error('Error fetching files:', error))
     }
 
-    InitAudioFolder(PATH + 'songs', "Rock")
     InitAudioFolder(PATH + 'electronic', "Electronic")
+    InitAudioFolder(PATH + 'songs', "Songs")
     InitAudioFolder(PATH + 'synthpop', "Synthpop")
     InitAudioFolder(PATH + 'scifi', "Sci-fi")
     InitAudioFolder(PATH + 'orchestral', "Orchestral")
