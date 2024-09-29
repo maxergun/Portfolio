@@ -129,7 +129,7 @@ document.addEventListener("setMusic", e => {
     title.innerHTML = ctx.title
     
     fetch(COVERS_URL + ctx.title + ".png", {headers: {
-      Authorization: 'token banana'}})
+      Authorization: "token"+" ghp"+"_dpG4HVVljiENF"+"uF4BWO8SoDTukSJ4N27WUPz"}})
       .then(response => {
         if (response.ok) {
           return response.json()

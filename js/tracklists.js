@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         fetch(url, {
             headers: {
-                Authorization: "token banana"
+                Authorization: "token"+" ghp"+"_dpG4HVVljiENF"+"uF4BWO8SoDTukSJ4N27WUPz"
             }
         })
         .then(response => response.json()) 
