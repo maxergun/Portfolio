@@ -118,7 +118,7 @@ wavesurfer.on("audioprocess", () => {
 })
 // Resets the play button icon after audio ends
 wavesurfer.on("finish", () => {
-  playButtonIcon.src = "assets/icons/play.png"
+  playButtonIcon.src = "assets/icons/continue.png"
 })
 
 document.addEventListener("setMusic", e => { 
