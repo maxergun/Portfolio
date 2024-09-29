@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const PATH = 'https://api.github.com/repos/maxergun/maxergun.github.io/contents/assets/audio/'
+    const PATH = 'https://api.github.com/repos/maxergun/maxergun.github.io/contents/assets/music/'
 
     const containerElem = document.getElementById('tracklistContainer')
 
@@ -72,10 +72,10 @@ document.addEventListener("DOMContentLoaded", function() {
             }).catch(error => console.error('Error fetching files:', error))
     }
 
-    InitAudioFolder(PATH + 'rock', "Rock")
+    InitAudioFolder(PATH + 'songs', "Rock")
     InitAudioFolder(PATH + 'electronic', "Electronic")
     InitAudioFolder(PATH + 'synthpop', "Synthpop")
-    InitAudioFolder(PATH + 'scifi', "Scifi")
+    InitAudioFolder(PATH + 'scifi', "Sci-fi")
     InitAudioFolder(PATH + 'orchestral', "Orchestral")
 
     // const music = fetch(musicPath)
