@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    <script src="js/jquery-3.7.1.min.js"></script>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -15,23 +16,12 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <body id="page-top">
+    <body class="page">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">Max Antonov</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
+        <nav id="mainNav"> 
         </nav>
+        <script> $("#mainNav").load("nav.html"); </script>
+
         <!-- Masthead-->
         <!-- <header class="masthead">
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">   
@@ -82,24 +72,6 @@
                                 <div class="audio-item"> Medley:
                                     <audio controls src="assets/audio/crawlyard/menu.mp3"> </audio>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row gx-0 mb-3 mb-lg-5 align-items-center">
-                    <div class="col-xl-4 col-lg-27"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/mondealy.png" alt="..." /></div>
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="featured-text text-center text-lg-left">
-                            <h4>
-                                <a href="https://store.steampowered.com/app/1620520/Mondealy/">
-                                    Mondealy
-                                </a>
-                            </h4>
-                            <h3>
-                                <p class="text-black-50 mb-3"> Provided credits song "Not Much Time" and guitar riffs. Game by a solo developer and a friend of mine, check it out.</p>
-                            </h3>
-                            <div class="audio-item">
-                                <audio controls src="assets/audio/songs/nmt.mp3"> </audio>
                             </div>
                         </div>
                     </div>
@@ -158,42 +130,9 @@
                 </div>
             </div>
         </section>
-        <!-- About-->
-        <section class="about-section" id="about">
-            <div class="container">
-                <div class="row gx-lg-5">
-                    <img class="col-lg-5" height="1%" src="assets/img/pic.png" alt="">
-                    <div class="col-sm">
-                        <p class="about-text">
-                            Self-taught Musician from heavy metal upbringing. Learned to play guitar at a young age, but later found interest in producing my own music and songs.
-                            Worked in variety of genres: electronic, instrumental, orchestral, hiphop, rock, abstract, ambient.
-                            Inspired by famous composers such as Jesper Kyd, Sonic Mayhem, Alex Brandon; to take a shot at composing music for games.
-                            The rest is history.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact-->
-        <section class="contact-section bg-black" id="contact">
-            <div class="container">
-                <div class="d-flex align-items-center justify-content-center">
-                    <img class="col-auto discord mx-2" src="assets/img/discord.png" alt="">
-                    <div class="col-auto text-white-50 mx-2">maxergun</div>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <div class="small text-white-50 mx-2"><a href="#!">maxergun@gmail.com</a></div>
-                </div>
-                <div class="social d-flex justify-content-center">
-                    <a class="mx-2" href="https://soundcloud.com/maxergun"><i class="fab fa-soundcloud"></i></a>
-                    <a class="mx-2" href="https://www.youtube.com/@maxergun"><i class="fab fa-youtube"></i></a>
-                    <a class="mx-2" href="https://maxergun.bandcamp.com/track/not-much-time"><i class="fab fa-bandcamp"></i></a>
-                </div>
-            </div>
-        </section>
-        <!-- Footer-->
-        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5"></div></footer>
+        <div id="copyright"> </div>
+        <script> $("#copyright").load("copyright.html");</script>
+        
         <!-- Bootstrap core JS-->
         <script src="./js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
