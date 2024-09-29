@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         trackElem.className = 'mp3'
 
         const nameElem = document.createElement("p")
+        nameElem.className = "mp3-title"
         nameElem.innerHTML = trackName
 
         const playImgElem = document.createElement("img")
