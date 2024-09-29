@@ -25,7 +25,7 @@ const initializeWavesurfer = () => {
     responsive: true,
     height: 80,
     waveColor: "#864e13",
-    progressColor: "#ff8612",
+    progressColor: "#ff9631",
   })
 }
 
