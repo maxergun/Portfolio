@@ -124,6 +124,7 @@ wavesurfer.on("finish", () => {
 document.addEventListener("setMusic", e => { 
   const ctx = e.detail
   if (ctx) {
+    wavesurfer.stop()
     wavesurfer.load(ctx.url)
     pendingMusicSetData.img = ctx.img
     pendingMusicSetData.title = ctx.title
