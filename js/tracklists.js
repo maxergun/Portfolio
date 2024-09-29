@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }})
         .then(response => response.json()) 
         .then(data => {
-            const tracklistElem = document.createElement('ul')
+            const tracklistElem = document.createElement('ol')
             tracklistElem.className = 'tracklist media-scroller'
 
             const div = document.createElement("div")
@@ -72,8 +72,11 @@ document.addEventListener("DOMContentLoaded", function() {
             }).catch(error => console.error('Error fetching files:', error))
     }
 
-    InitAudioFolder(PATH + 'crawlyard', "Action (Electronic)") 
-    InitAudioFolder(PATH + 'crawlyard', "Rock")
+    InitAudioFolder(PATH + 'rock', "Rock")
+    InitAudioFolder(PATH + 'electronic', "Electronic")
+    InitAudioFolder(PATH + 'synthpop', "Synthpop")
+    InitAudioFolder(PATH + 'scifi', "Scifi")
+    InitAudioFolder(PATH + 'orchestral', "Orchestral")
 
     // const music = fetch(musicPath)
 
