@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const PATH = 'https://api.github.com/repos/maxergun/maxergun.github.io/contents/assets/music/'
-
+ 
     const containerElem = document.getElementById('tracklistContainer')
 
     const MUSIC_PLAY_IMG_ID = 'icon-music'
@@ -50,14 +50,12 @@ document.addEventListener("DOMContentLoaded", function() {
         const tracklistElem = document.createElement('ol')
         tracklistElem.className = 'tracklist media-scroller'
 
-        fetch(url, {headers: {
-            Authorization: 'token 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' 
-        }})
-        .then(response => {
-            if (response.ok) {
-                return response.json()
+        fetch(url, {
+            headers: {
+                Authorization: "token banana"
             }
-        }) 
+        })
+        .then(response => response.json()) 
         .then(data => {
             const div = document.createElement("div") 
             const titleElem = document.createElement("header")

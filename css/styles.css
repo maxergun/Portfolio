@@ -11343,6 +11343,12 @@ body {
   grid-auto-flow: row; */
 }
 
+.tracklist-title {
+  text-align: center; 
+  color: black;
+  width: 100%;
+}
+
 .mp3 {
   --track-gradient-dark: rgba(0, 0, 0, 0.719);
   --track-gradient-dark-mid: rgb(82, 82, 82);
