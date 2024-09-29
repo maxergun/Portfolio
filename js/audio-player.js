@@ -8,10 +8,6 @@ const totalDuration = document.querySelector("#totalDuration")
 const title = document.querySelector("#trackTitle")
 
 const playButtonIconElem = document.getElementById("#playButtonIcon")
-
-const PATH = 'https://api.github.com/repos/maxergun/maxergun.github.io/contents/assets/audio/'
-const COVERS_URL = 'https://api.github.com/repos/maxergun/maxergun.github.io/contents/assets/img/covers/'
-
 const cachedPlayButtonBG = playButton.style.background
 
 // --------------------------------------------------------- //
@@ -87,9 +83,9 @@ const toggleMute = () => {
   }
 }
 
-
 const wavesurfer = initializeWavesurfer()
-let currentMusicUrl
+
+let pendingMusicSetData = {}
 
 window.addEventListener("load", setVolumeFromLocalStorage)
 playButton.addEventListener("click", togglePlay)
@@ -105,6 +101,14 @@ wavesurfer.on("ready", () => {
   const duration = wavesurfer.getDuration()
   totalDuration.innerHTML = formatTimecode(duration)
   play()
+
+  title.innerHTML = pendingMusicSetData.title
+  if (pendingMusicSetData.img) {
+    playButton.style.background = 
+    'linear-gradient(rgba(255,255,255,0),rgba(0,0,0,.3)), url("'+pendingMusicSetData.img+'")'
+  }
+  else
+    playButton.style.background = "transparent"
 })
 
 // Sets the timecode current timestamp as audio plays
@@ -120,35 +124,8 @@ wavesurfer.on("finish", () => {
 document.addEventListener("setMusic", e => { 
   const ctx = e.detail
   if (ctx) {
-    if (currentMusicUrl == ctx.url) {
-      togglePlay()
-      return
-    }
-    currentMusicUrl = ctx.url
-    wavesurfer.load(ctx.url,null,"auto")
-    title.innerHTML = ctx.title
-    
-    fetch(COVERS_URL + ctx.title + ".png", {headers: {
-      Authorization: "token"+" ghp"+"_dpG4HVVljiENF"+"uF4BWO8SoDTukSJ4N27WUPz"}})
-      .then(response => {
-        if (response.ok) {
-          return response.json()
-        }
-        playButton.style.background = "transparent"
-      })
-      .then(data => {
-        if (currentMusicUrl == ctx.url) {
-          fetch(COVERS_URL + ctx.title + ".png")
-          .then(response => response.json())
-          .then(data => {
-            if (currentMusicUrl == ctx.url) {
-              playButton.style.background = 
-              'linear-gradient(rgba(255,255,255,0),rgba(0,0,0,.3)), url("'+data.download_url+'")'
-            }
-          })
-        }
-      }).catch(error => {
-        console.error(error)
-      })
+    wavesurfer.load(ctx.url)
+    pendingMusicSetData.img = ctx.img
+    pendingMusicSetData.title = ctx.title
   }
 })
